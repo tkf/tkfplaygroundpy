@@ -36,6 +36,7 @@ jobs:
         on:
           branch: release/test
           repo: tkf/tkfplaygroundpy
+      if: branch = release/test
       script: skip
 
     # Test uploaded package
