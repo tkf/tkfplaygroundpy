@@ -1,4 +1,7 @@
-"""
+r"""
+My Python packaging playground
+==============================
+
 """
 
 __version__ = "0.0.0"

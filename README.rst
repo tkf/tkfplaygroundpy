@@ -1,2 +1,3 @@
-tkfplaygroundpy package
-=======================
+My Python packaging playground
+==============================
+
