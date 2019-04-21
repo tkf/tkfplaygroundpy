@@ -1,0 +1,8 @@
+#!/bin/bash
+set -ex
+mkdir -pv tmp/test-upload
+cd tmp/test-upload
+python -m venv env
+env/bin/pip install tkfplayground --index-url https://test.pypi.org/simple/ --pre tkfplayground
+env/bin/pip install pytest
+env/bin/pytest --pyargs tkfplaygroundpy

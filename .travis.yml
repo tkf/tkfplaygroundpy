@@ -19,3 +19,27 @@ after_success:
 
 notifications:
   email: false
+
+jobs:
+  include:
+
+    # Upload the package to `test.pypi.org` when there is a push to
+    # `release/test` branch:
+    - stage: "Test deploy"
+      deploy:
+        provider: pypi
+        server: https://test.pypi.org/legacy/
+        user: tkf
+        password:
+          secure: Pe89+5WkuZSf0PF8xhvXidYSgD+4ivGSm/Q3U7/zFaDOtA1R9g+qoDOKA/5NG7ammULT/+HS8R+31RXKriTddyiat36fDjRo2ohxvPxZeobATtL9GUWY5Ku6ocUVcA9DJyUZBDsuBEKpSfkBYzIONwU+UmKar3u38J0xVLmzDtHsuQX1jJoTfzQJWxm1VIZ27XSF31NPwx9McwtaKgud0cWIkOFll5wUtz6ztP/56VqF+jeY5+6JO1SUj/+kYEFJUwlGRi2buoS7TAhSuswZvfKwFUUN+xJOKBI0+mSSmFuXf9dZ0eoSvIOBtnprhV8AnEibjbi+3a8VSj/jy3bHvpYtVpMgsS89DOYgHagor4Ap/FEKCc1ZvqTbvH0Th7SzlY5ZzMX7yTAbo/ibqH0Mub1zzsX/h3LgLT7NDBINq9V5vMmUUcCLwWHQaYgz2Bqg0WOeLGfkjjSAiUfwX9J56M020uz+jK75YiAlJ8RghGPSpLVgu13zClbSqeB9bmtSLS6ZMa5HYtLDpAzd1k4RCG4Ln3H125n9LSk/wAgXaHVjh1BcVCMx13U35lRdZPGlZ4ErtgC3UABx9WciHPrIMiOzohda3UWSI+Yx5P0D/UFPAkAC389dKgF0r6YJo4ieD6PA4wgW+Zfz4npxYHPMnAaKmssYY8r80l/RrctKufM=
+        distributions: "sdist bdist_wheel"
+        on:
+          branch: release/test
+          repo: tkf/tkfplaygroundpy
+      script: skip
+
+    # Test uploaded package
+    - stage: "Test upload"
+      if: branch = release/test
+      script:
+        - ci/test-upload
