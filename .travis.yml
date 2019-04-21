@@ -1,8 +1,14 @@
 sudo: false
 language: python
+dist: xenial  # required for Python >= 3.7
 
 python:
-  - "3.6"
+  - "3.5"
+  - "3.7"
+# Multiple "Test" jobs seems to be required to run tests when
+# conditional stages are added.  Run the CI with only one `python`
+# entry above to reproduce this buggy behavior.  I'm not sure if this
+# is a bug in Travis CI or in my config.
 
 before_install:
   - pip install --quiet "pip>=19.0" "setuptools>=41.0"
