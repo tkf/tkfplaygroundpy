@@ -5,7 +5,7 @@ python:
   - "3.6"
 
 before_install:
-  - pip install --quiet --upgrade pip
+  - pip install --quiet --upgrade pip setuptools
   - pip install --quiet --upgrade tox coveralls
   - pip --version
   - tox --version
