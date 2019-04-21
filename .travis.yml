@@ -6,7 +6,7 @@ python:
 
 before_install:
   - pip install --quiet --upgrade pip
-  - pip install --quiet tox coveralls
+  - pip install --quiet --upgrade tox coveralls
 
 script:
   - tox -- --cov=tkfplaygroundpy
