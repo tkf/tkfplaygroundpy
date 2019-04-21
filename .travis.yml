@@ -22,6 +22,12 @@ notifications:
 
 jobs:
   include:
+    - &check
+      python: "3.6"
+      env:
+        - TOXENV=style
+      script:
+        - tox
 
     # Upload the package to `test.pypi.org` when there is a push to
     # `release/test` branch:
