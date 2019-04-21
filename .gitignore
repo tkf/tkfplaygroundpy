@@ -2,8 +2,10 @@
 .pytest_cache
 /.cache
 /.coverage
+/.eggs
 /.tox
 /MANIFEST
+/build
 /ci/test-upload/.tox
 /dist
 /doc/build
