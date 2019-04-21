@@ -2,13 +2,7 @@ sudo: false
 language: python
 
 python:
-  - "2.7"
   - "3.6"
-
-env:
-  global:
-    # Use the Python version specified by Travis inside tox:
-    - TOXENV=py
 
 before_install:
   - pip install --quiet tox coveralls
