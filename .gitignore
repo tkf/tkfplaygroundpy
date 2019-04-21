@@ -4,6 +4,7 @@
 /.coverage
 /.tox
 /MANIFEST
+/ci/test-upload/.tox
 /dist
 /doc/build
 /src/*.egg-info

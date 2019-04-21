@@ -40,6 +40,6 @@ jobs:
 
     # Test uploaded package
     - stage: "Test upload"
-      if: branch = release/test
+      if: branch = release/test OR upload/test
       script:
-        - ci/test-upload
+        - cd ci/test-upload && tox
