@@ -11,7 +11,7 @@ python:
 # is a bug in Travis CI or in my config.
 
 before_install:
-  - pip install --quiet "pip>=19.0" "setuptools>=41.0"
+  - pip install --quiet "pip>=19.0"
   - pip install --quiet tox coveralls
 
 script:
