@@ -44,9 +44,11 @@ jobs:
           repo: tkf/tkfplaygroundpy
       if: branch = release/test
       script: skip
+      after_success: skip
 
     # Test uploaded package
     - stage: "Test upload"
       if: branch = release/test OR branch = upload/test
       script:
         - cd ci/test-upload && tox
+      after_success: skip
