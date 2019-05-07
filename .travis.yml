@@ -10,6 +10,10 @@ python:
 # entry above to reproduce this buggy behavior.  I'm not sure if this
 # is a bug in Travis CI or in my config.
 
+env:
+  global:
+    - TOXENV=py
+
 before_install:
   - pip install --quiet "pip>=19.0"
   - pip install --quiet tox coveralls
@@ -25,6 +29,18 @@ notifications:
 
 jobs:
   include:
+
+    - language: python
+      env:
+        - TOXENV=style
+      os: linux
+      python: "3.7"
+
+    - language: python
+      env:
+        - TOXENV=type
+      os: linux
+      python: "3.7"
 
     # Upload the package to `test.pypi.org` when there is a push to
     # `release/test` branch:
