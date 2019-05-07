@@ -1,7 +1,15 @@
+from packaging.version import Version  # type: ignore
 from pkg_resources import get_distribution
-from packaging.version import Version
 
 from .. import __version__
+
+
+def f(x: int) -> int:
+    return x
+
+
+# def g(x: int) -> str:
+#     return x
 
 
 def test_always_pass():
