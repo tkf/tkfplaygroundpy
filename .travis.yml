@@ -30,17 +30,20 @@ notifications:
 jobs:
   include:
 
-    - language: python
+    - &check
+      language: python
       env:
         - TOXENV=style
       os: linux
       python: "3.7"
 
-    - language: python
+    - <<: *check
       env:
         - TOXENV=type
-      os: linux
-      python: "3.7"
+
+    - <<: *check
+      env:
+        - TOXENV=packaging
 
     # Upload the package to `test.pypi.org` when there is a push to
     # `release/test` branch:
